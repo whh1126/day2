@@ -8,15 +8,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="font/iconfont.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/swiper-4.1.6.min.css">
     <script src="js/flexible.js"></script>
+    <script src="js/swiper-4.1.6.min.js"></script>
 </head>
 
 <body>
+
     <div class="wrapper">
         <header>
             <div class="left">
                 <i class="icon iconfont icon-xiaoyuhao"></i>
-
             </div>
             <div class="center">
                 <h3>无法连接</h3>
@@ -27,33 +29,54 @@
             </div>
         </header>
         <section>
-            <div class="content">
-                <dl>
-                    <dt> <i class="icon iconfont icon-guanbi1"></i></dt>
-                    <dd>电源</dd>
-                </dl>
-                <dl>
-                    <dt> <i class="icon iconfont icon-guanbi1"></i></dt>
-                    <dd>电源</dd>
-                </dl>
-                <dl>
-                    <dt> <i class="icon iconfont icon-guanbi1"></i></dt>
-                    <dd>电源</dd>
-                </dl>
-                <dl>
-                    <dt> <i class="icon iconfont icon-guanbi1"></i></dt>
-                    <dd>电源</dd>
-                </dl>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="content">
+                            <dl class="active">
+                                <dt> <i class="icon iconfont icon-guanbi1"></i></dt>
+                                <dd>电源</dd>
+                            </dl>
+                            <dl>
+                                <dt> <i class="icon iconfont icon-guanbi1"></i></dt>
+                                <dd>电源</dd>
+                            </dl>
+                            <dl>
+                                <dt> <i class="icon iconfont icon-guanbi1"></i></dt>
+                                <dd>电源</dd>
+                            </dl>
+                            <dl>
+                                <dt> <i class="icon iconfont icon-guanbi1"></i></dt>
+                                <dd>电源</dd>
+                            </dl>
+                        </div>
+                        <p>
+                            就发放日否认烦人烦人烦人人放入肉得得得的方法得得得的方法的他 个体通天塔天天
+                        </p>
+                    </div>
+                </div>
             </div>
-            <p>
-                就发放日否认烦人烦人烦人人放入肉得得得的方法得得得的方法的他 个体通天塔天天
-            </p>
         </section>
         <footer>
             <a href="#"> <i class="icon iconfont icon-ding"></i></a>
             <a href="#"> <i class="icon iconfont icon-tingchechang"></i></a>
         </footer>
     </div>
+    <script src="js/jquery-1.9.1.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            on: {
+                slideChange: function() {
+                    var ind = this.activeIndex;
+                    $('#footer').find('dl').eq(ind).addClass('active').siblings().removeClass('active');
+                }
+            }
+        })
+        $('.content').on('click', 'dl', function() {
+            var index = $(this).index();
+            mySwiper.slideTo(index, 1000);
+        })
+    </script>
 
 </body>
 
